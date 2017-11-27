@@ -4,13 +4,16 @@ windowName = 'rigUI'
 if c.window(windowName, exists=True):
     c.deleteUI(windowName)
 
-window = c.window(windowName, title="Biped Rig Generator", iconName='Make Rig', widthHeight=(100, 150) )
+window = c.window(windowName, title="Biped Rig Generator", iconName='Make Rig', widthHeight=(100, 175) )
 c.columnLayout( rowSpacing=10 )
 c.text(label="Setup: Make sure your character is facing up the Z-Axis", align='left', wordWrap=True)
 c.text(label="Step1: Generate locators and place at joint locations up the spine and on arms/legs on one side of the body", align='left', wordWrap=True)
 c.button( label='Generate locators', c='create_locators()')
 c.text(label="Step2: After placing the joint locators, generate the rig.", align='left', wordWrap=True)
 c.button( label='Generate rig', c='generate_rig()')
+c.text(label="Step3: You're ready for skinning! Use this to select all the joints for binding. In your bind skin options, set 'Bind To: selected joints'", align='left', wordWrap=True)
+
+c.button( label='Select joints', c='c.select("jnt_*")')
 c.setParent( '..' )
 c.showWindow( window )
 
